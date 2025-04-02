@@ -1,22 +1,20 @@
 # Design log
 
 ## April 1 2025
-- First version has been assembled in PLA, excluding motor cooling fans and SAMLA box
-- Printer is to be reprinted in PETG and completely reassembled, so wiring is a mess right now
-- Klipper/Mainsail on BTT Pi and SKR Pico
-- Encountered and resolved defective heated bed MOSFET
-- Except layer shifting on Y axis, print quality is good. Printer is very quiet
+- One week sprint: First version has been assembled in PLA, excluding motor cooling fans and SAMLA box
+- Updated parts to be reprinted in PETG and printer to be reassembled, so wiring management is intentionally lacklustre.
+- Klipper/Mainsail on BTT Pi and SKR Pico with sensorless homing on X/Y working. Resolved defective heated bed MOSFET issue.
+- Aside from layer shifting due to bad belt tensioning on Y axis, print quality is good. Printer is very quiet
 - Comments and next changes:
   - Y motor mounts: Change holes to slots so the belt tension can be even higher. Current configuration, belt tension too loose, causing layer shifting in the Y direction (belt skipping over pulleys).
-  - XZ motor mounts: Motor wire connectors are so close to the 1515 extrusion that one wire is slightly pinched (not a big deal)
-  - Volcano clone: Heatbreak bent, replace. Thermistor and heater cartridge wires at significant bend angle.
-  - Toolhead wiring: Bowden tube goes to the front, deciding on whether wiring to back or front
-  - Heated bed wiring: Deciding whether wiring to back or front
-  - Z endstop: Fine. If heated bed wiring goes to the back, may interfere.
-  - Sensorless homing (X and Y): Install non-structural, pliable parts to collide against rather than damage the system.
-  - Y carriage assy: Silicon heater thicker than expected and possibly in contact with Y belt holder. Currently spaced upwards by 1mm printed washer underneath the 18mm silicon spacers. Also the silicon spacers interfere with the heating pad and are not flush - does not appear to be an issue. Very minimal binding on one end of Y axis (belt rail?).
+  - XZ motor mounts: Motor wire connectors are so close to the 1515 extrusion that one wire is slightly pinched. This is not a big deal, but a notable comment.
+  - Volcano clone: The heatbreak is bent from me dropping it and needs to be replaced. Thermistor and heater cartridge wires at bent at significant angles, which is concerning.
+  - Z endstop: Adjustment works fine, but requires Z axis to be homed and held in place via the motors, since the Z axis falls. The Z endstop may interfere with the heated bed wiring if said wiring goes to the back of the printer.
+  - Toolhead wiring: Bowden tube goes to the front, where the extruder is. I am deciding on whether to bring wires to the front or the back. Bringing to the back may cause interference with the XZ belts.
+  - Sensorless homing (X and Y): Concerning crashes/sensitivities. Install non-structural, pliable parts to collide against rather than damage the system.
+  - Y carriage assy: Heating pad thicker than expected and possibly in contact with Y belt holder. Currently spaced by 18mm silicon spacers with extra 1mm printed washer underneath. Also the silicon spacers interfere with the heating pad and are not flush with the bed - does not appear to be an issue. Very minimal increase in binding towards one end of Y axis (bent rail?).
   - X carriage: Loose ends of XZ belts in way, restricting full 120mm X range. Leave for now. 
-  - XZ belt: Belt tension is high, Z axis falls slowly. Toolhead easily moved by hand in 45 degree directions but not as easily in X and Z.
+  - XZ belt: Belt tension is high, Z axis falls slowly. Toolhead easily moved by hand in 45 degree directions but not as easily in X and Z directions.
 
 ## March 14 2025
 - Increased spacing around Y motors by 1mm for airflow
