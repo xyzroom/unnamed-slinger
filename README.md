@@ -1,34 +1,43 @@
 # unnamed-slinger
 
-# Overview
-- This is a work-in-progress CoreXZ bedslinger 3D printer that is designed to be fully enclosed within a 38x28x28 cm^3 22L IKEA SAMLA storage box.
-- The electronics and filament spool are to be housed within a separate SAMLA storage box.
+![front image](cover.png)
 
-# Summary of components
-- 1515L extrusions (NOT Makerbeam 1515 extrusions) and slider nuts, all-bracketed assembly
-- 5x 170mm MGN12H, with 2 on each axis except X
+## Overview
+- Work-in-progress 3D printer
+- CoreXZ bedslinger, to be enclosed in a 22L IKEA SAMLA storage box (38x28x28 cm^3).
+- Electronics and filament spool(s) to be housed separately.
+
+## Summary
+- 170mm MGN12 rails with MGN12H carriages (2 on Z axis)
+- All-bracketed assembly from 1515L extrusions (NOT Makerbeam 1515 extrusions) and slider nuts
 - Build footprint of (120mm)^2, Z height not quite at 120mm, can theoretically squeeze there with compromises
-- Uses 23.5mm NEMA17 pancakes, which I am in excess of. There are two on the Y axis.
-- V6 Volcano Bowden
+- 23.5mm NEMA17 pancake stepper motors (2 on Y axis)
+- V6 Volcano in Bowden setup
 
-# Roadmap
-- Get printer working
-- Slap on a bunch of fans and get enclosure working
-- Slap on a bunch of temperature sensors everywhere
-- Air filter inside
+## Timeline
+- V1 (completed): Get basic printer working (V2: modify toolhead and Y axis)
+- V2 (ongoing): Add a bunch of fans and chamber temperature sensors. Add air filter
 
-# Rationale, theory, aims
-- Print quality: Smaller printers have lower moving masses and components are more likely to be flat/square/straight.
-- Heating: Small, enclosed printers are quick to heat up. A highly even, warm chamber temperature should assist greatly with part quality and strength.
-- Ease of travel/modding/general smoothness: Typical enclosed printers either have massive enclosures, are built into their enclosures or have their enclosures built around them. This is inconvenient for both travel and for modding. My design is essentially a printer which can be put inside and taken outside of a clear plastic box.
-- Genuinely enclosed: Apart from a notch in the lid for wiring, this has the potential to be actually airtight. Pollutants and heat kept mostly inside -- Open the box outdoors to release harmful emissions.
-- Separate printer, electronics and filament into modular system: For example, it is a very popular storage solution to place 4 filament spools in a 22L SAMLA.
-- Multiple motors on every axis: I did not wish to purchase new steppers as I had many pancake steppers lying around. I could do somethign like a AWD mini CoreXY, or in this case, a CoreXZ bedslinger with 2 motors on the Y axis. CoreXZ is not really a great motion system in theory, but it should be good enough (?). I chose it due to its symmetry/simplicity, ability to meet space requirements and nature in that both AB motors are involved in every X travel move.
-- Separate X and Y: Though not off the table, it is generally harder to vary the toolhead design for something like a CoreXY printer, because of space constraints in every direction. Whereas for this bedslinger, I can offset the entire XZ axis along Y if desired.
+## Rationale, theory, aims
+- Lower moving masses
+- Components more likely to be flat, square, straight
+- Quick to heat up, with potential to reach hotter temperatures if the motors can stay alive
+- Separate printer, electronics and filament
+- Transparent and removeable enclosure: Typical printers have massive furniture enclosures or their enclosures are built around the printer frame. These can be inconvenient for travel, cleaning and modding.
 
-# Uncertain:
-- Unsure about whether circulation is good or bad. I would do circulation to maintain even temperature and prevent hot spots, but apparently this may achieve the opposite effect.
+## Why CoreXZ
+I wanted to use up weak pancake steppers I had lying around. CoreXZ is remarkably symmetrical for a box-style frame, and allows A/B steppers to work together for X movements. I was able to squeeze 2 motors into the Y axis.
 
-# Potential issues
-- General weight imbalance on X axis
-- Overheating of motors
+It is definitely possible to fit something like a tiny AWD CoreXZ, but this would be severely height limited. It would also be harder to modify the toolhead design. With CoreXZ I can offset the entire XZ axis along Y if desired.
+
+## Uncertainties and potential issues:
+- Overheating of motors is probably the most signficant problem. In V1-test, I had not yet installed the motor cooling fans, and there was significant skipping on the Y axis, where the motors are below the heated bed. The skipping may also be due to thermal expansion - For some reason I decided to use 2 linear rails on the Y axis, which is a terrible idea for binding, especially under significant temperature changes.
+- There is a pitching moment on the X axis due to weight imbalance from the toolhead. (mostly unavoidable, but potentiall avoided by adding a row of fans as counterweight)
+- Unsure whether having fans blowing warm air at parts is good or bad. I thought about adding circulation fans to maintain even temperature and protect parts from hot spots, but apparently circulation can cause uneven temperature variations instead.
+
+## Goals and learning
+- Use linear rails for the first time
+- Use Klipper for the first time
+- Use Fusion 360 for the first time
+- Finally be able to print with ABS filament
+- Improve understanding of CoreXZ/CoreXY motion systems
